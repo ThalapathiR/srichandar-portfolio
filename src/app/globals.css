@@ -1,0 +1,282 @@
+/* ==========================================================================
+   Design System
+   Dark, editorial, minimal. Static by design: no animations or transitions.
+   ========================================================================== */
+
+:root {
+  /* Surfaces */
+  --bg-page: #080808;
+  --bg-elevated: #0e0e0e;
+  --bg-card: #121212;
+  --bg-card-strong: #171717;
+  --bg-input: #121213;
+
+  /* Accent */
+  --accent: #c5ff00;
+  --accent-hover: #dbff64;
+  --accent-soft: rgba(197, 255, 0, 0.08);
+  --accent-line: rgba(197, 255, 0, 0.35);
+  --accent-emerald: var(--accent);
+
+  /* Lines */
+  --border-color: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #8a8a8f;
+  --text-on-accent: #080808;
+
+  /* Typography */
+  /* Geist via next/font; the fallback inside var() keeps the stack valid if a font fails to load */
+  --font-sans: var(--font-geist-sans, -apple-system), BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono, ui-monospace), SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Layout */
+  --container-max-width: 1240px;
+  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
+  --section-padding: clamp(5rem, 9vw, 8.5rem) 0;
+  --header-height: 72px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-page);
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Page wrapper */
+.portfolioCanvas {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 46px;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-sm {
+  min-height: 40px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   Section header (eyebrow + display title + side note)
+   ========================================================================== */
+
+.section-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.42fr);
+  align-items: end;
+  gap: 2.5rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.section-header-main {
+  min-width: 0;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.section-index {
+  color: var(--accent);
+}
+
+.section-index::after {
+  content: "/";
+  color: var(--text-muted);
+  margin-left: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 6.4vw, 5.25rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.section-subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  padding-bottom: 0.4rem;
+}
+
+/* Accent text helpers */
+.gradient-text,
+.blue-text {
+  color: var(--accent);
+}
+
+/* Shared eyebrow */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+@media (max-width: 900px) {
+  .section-header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .section-subtitle {
+    max-width: 560px;
+  }
+}

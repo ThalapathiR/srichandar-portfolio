@@ -1,0 +1,132 @@
+.projectsSection {
+  background: var(--bg-page);
+}
+
+.subheading {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  justify-self: end;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Editorial row: copy (left) + client requirement (right), link below copy */
+.projectCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-areas:
+    "copy req"
+    "footer req";
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(2rem, 6vw, 6rem);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.projectCopy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.numberLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.headerRule {
+  flex: 1;
+  max-width: 220px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-line), transparent);
+}
+
+.projectTitle {
+  font-size: clamp(1.85rem, 3.6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  overflow-wrap: anywhere;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+/* Client Requirement */
+.clientReqBox {
+  grid-area: req;
+  align-self: start;
+  background: linear-gradient(135deg, #171717, #101010);
+  border: 1px solid #242424;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+}
+
+.clientReqHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.clientReqText {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #c4c4c4;
+}
+
+.cardFooter {
+  grid-area: footer;
+  align-self: start;
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .subheading {
+    justify-self: start;
+  }
+
+  .projectCard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "req"
+      "footer";
+    grid-template-rows: auto;
+    row-gap: 1.75rem;
+  }
+
+  .cardFooter {
+    margin-top: 0;
+  }
+}

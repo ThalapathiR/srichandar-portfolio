@@ -1,0 +1,359 @@
+/* ==========================================================================
+   Skills & Technologies
+   Two framed category panels with equal-height skill tiles. Static: no motion.
+   ========================================================================== */
+
+.skillsSection {
+  background:
+    radial-gradient(45% 40% at 85% 0%, rgba(197, 255, 0, 0.035) 0%, transparent 70%),
+    var(--bg-page);
+}
+
+/* --------------------------------------------------------------------------
+   Section header refinements (scoped to this section only)
+   -------------------------------------------------------------------------- */
+
+.skillsSection .header {
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.skillsSection .subtitle {
+  padding: 0.15rem 0 0.15rem 1.25rem;
+  border-left: 1px solid var(--accent-line);
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Category panels
+   -------------------------------------------------------------------------- */
+
+.groupsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: clamp(1rem, 1.6vw, 1.25rem);
+  align-items: stretch;
+}
+
+.groupCard {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-row: span 2;
+  min-width: 0;
+  padding: clamp(1.25rem, 2.4vw, 1.75rem);
+  background:
+    radial-gradient(70% 55% at 0% 0%, rgba(197, 255, 0, 0.045) 0%, transparent 70%),
+    linear-gradient(180deg, #121212 0%, #0c0c0c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Static lime hairline along the top edge */
+.groupCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.75rem;
+  right: 1.75rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(197, 255, 0, 0.55), rgba(197, 255, 0, 0.08) 60%, transparent);
+  pointer-events: none;
+}
+
+/* Headers of both panels share one row height (titles may wrap differently) */
+@supports (grid-template-rows: subgrid) {
+  .groupCard {
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+}
+
+.groupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-bottom: clamp(1.15rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.15rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.groupHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.groupIndex {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.groupIndex::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--accent-line);
+}
+
+.groupTitle {
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.groupBadgeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  color: var(--accent);
+  background: #13170a;
+  border: 1px solid rgba(197, 255, 0, 0.2);
+}
+
+.groupBadgeIcon svg {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Skill tiles
+   -------------------------------------------------------------------------- */
+
+.skillList {
+  display: grid;
+  gap: 0.75rem;
+  grid-auto-rows: minmax(116px, auto);
+  align-content: start;
+}
+
+.groupDesign .skillList {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.groupTech .skillList {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Side-by-side: 4 rows stretch so both panels end on the same line */
+  grid-auto-rows: minmax(116px, 1fr);
+  align-content: stretch;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1rem 1rem 0.95rem;
+  background: linear-gradient(180deg, #161616 0%, #111111 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+}
+
+.skillTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.skillIndex {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #5c5c61;
+  padding-top: 0.15rem;
+}
+
+.skillName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: #ededed;
+  overflow-wrap: anywhere;
+}
+
+/* Icon chip: fixed 40px square shared by every icon kind */
+.skillIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.skillIconBox svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* General skills: lime duotone glyph on a faint lime-tinted chip */
+.chipGlyph {
+  color: var(--accent);
+  background: #13170a;
+  border: 1px solid rgba(197, 255, 0, 0.18);
+}
+
+/* Brand marks: official colour on a chip tinted with that colour */
+.chipBrand {
+  color: var(--brand);
+  background: #141414;
+  background: color-mix(in srgb, var(--brand) 14%, #0e0e0e);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-color: color-mix(in srgb, var(--brand) 32%, transparent);
+}
+
+/* Adobe app icons: the official artwork already is the tile */
+.chipApp {
+  background: transparent;
+}
+
+/* Custom illustrated icons: soft off-white chip so dark and outlined art stays legible */
+.chipImage {
+  background: #f2f3ec;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Custom icons whose artwork already includes its own tile (e.g. Figma) */
+.chipImageFill {
+  background: transparent;
+}
+
+.skillImage {
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Staggered reveal (plays once per panel; driven by data-reveal from Skills.tsx)
+   -------------------------------------------------------------------------- */
+
+.revealItem {
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.groupCard[data-reveal='pending'] .revealItem {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealItem {
+    transition: none;
+  }
+
+  .groupCard[data-reveal='pending'] .revealItem {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   Column counts are chosen so 15 and 8 tiles fill complete rows.
+   -------------------------------------------------------------------------- */
+
+/* Tablet landscape: stacked panels, wide grids (5 x 3 and 4 x 2) */
+@media (max-width: 1099px) {
+  .groupsGrid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    row-gap: 1.25rem;
+  }
+
+  .groupCard {
+    grid-row: auto;
+    grid-template-rows: auto 1fr;
+  }
+
+  .groupDesign .skillList {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .groupTech .skillList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(116px, auto);
+    align-content: start;
+  }
+}
+
+/* Tablet portrait: 3 x 5 and 2 x 4 */
+@media (max-width: 899px) {
+  .groupDesign .skillList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .groupTech .skillList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skillsSection .subtitle {
+    max-width: 560px;
+  }
+}
+
+/* Mobile: two columns; a lone final tile spans the full row */
+@media (max-width: 559px) {
+  .groupCard {
+    border-radius: 16px;
+  }
+
+  .groupCard::before {
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .groupBadgeIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .groupDesign .skillList,
+  .groupTech .skillList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .skillList {
+    grid-auto-rows: minmax(108px, auto);
+  }
+
+  .skillList > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .skillItem {
+    padding: 0.9rem 0.85rem 0.85rem;
+    border-radius: 12px;
+  }
+
+  .skillName {
+    font-size: 0.875rem;
+  }
+}
