@@ -1,112 +1,124 @@
+/* ==========================================================================
+   Professional Responsibilities & Impact: Executive Editorial Showcase
+   Larger images, crystal-clear impact hierarchy, and obsidian aesthetics
+   ========================================================================== */
+
 .responsibilitiesSection {
   background: transparent;
-  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
 }
+
+/* ==========================================================================
+   Executive Highlights Summary Ribbon
+   ========================================================================== */
+
+.impactOverviewBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(197, 255, 0, 0.05) 0%, transparent 80%),
+    linear-gradient(180deg, #161616 0%, #101010 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.5rem, 3.5vw, 2.75rem);
+  margin-top: 2rem;
+  margin-bottom: clamp(2.5rem, 4vw, 3.75rem);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.overviewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.overviewValue {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.overviewLabel {
+  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.35rem;
+}
+
+.overviewDivider {
+  width: 1px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Items List & Editorial Showcase Cards
+   ========================================================================== */
 
 .itemsList {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 3.5vw, 3rem);
-  margin-top: 2.5rem;
+  gap: clamp(2.5rem, 4.5vw, 4rem);
 }
-
-/* ==========================================================================
-   Editorial Cards: Obsidian Dark Theme with Alternating Composition
-   ========================================================================== */
 
 .itemCard {
   background:
-    radial-gradient(70% 55% at 0% 0%, rgba(197, 255, 0, 0.035) 0%, transparent 70%),
-    linear-gradient(180deg, #131313 0%, #0d0d0d 100%);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: clamp(2rem, 3.5vw, 3rem);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
-  column-gap: clamp(2rem, 4vw, 3.75rem);
-  row-gap: 2rem;
-  align-items: center;
+    radial-gradient(80% 50% at 0% 0%, rgba(197, 255, 0, 0.035) 0%, transparent 70%),
+    linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 24px;
+  padding: clamp(2rem, 3.5vw, 3.25rem);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
 
 .itemCard:hover {
-  border-color: var(--accent-line);
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(197, 255, 0, 0.08);
+  border-color: rgba(197, 255, 0, 0.3);
+  box-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.65), 0 0 28px -4px rgba(197, 255, 0, 0.08);
   transform: translateY(-2px);
 }
 
-/* Normal layout: Text on Left (order 1), Gallery on Right (order 2) */
-.cardNormal .itemBody {
-  order: 1;
-}
-
-.cardNormal .galleryGrid {
-  order: 2;
-}
-
-/* Reversed layout: Gallery on Left (order 1), Text on Right (order 2) */
-.cardReversed {
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
-}
-
-.cardReversed .galleryGrid {
-  order: 1;
-}
-
-.cardReversed .itemBody {
-  order: 2;
-}
-
-/* Single-Card Feature for Items with No Images (Skill-Based Innovative Development Program) */
-.noImagesCard {
-  grid-template-columns: 1fr;
-  background:
-    radial-gradient(70% 55% at 0% 0%, rgba(197, 255, 0, 0.06) 0%, transparent 70%),
-    linear-gradient(135deg, #141414 0%, #0f0f0f 100%);
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--accent);
-  border-radius: 20px;
-}
-
-.noImagesCard .itemBody {
-  max-width: 860px;
-}
-
-/* ==========================================================================
-   Card Content & Typography
-   ========================================================================== */
-
-.itemBody {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
+/* Card Header */
 .cardHeader {
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .badgeRow {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  margin-bottom: 0.85rem;
 }
 
 .indexBadge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 6px;
   background: var(--accent-soft);
   color: var(--accent);
   border: 1px solid var(--accent-line);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -116,7 +128,7 @@
   font-size: 0.85rem;
 }
 
-.impactLabel {
+.categoryLabel {
   font-size: 0.825rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -124,177 +136,413 @@
   letter-spacing: 0.06em;
 }
 
+.scopePill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(197, 255, 0, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(197, 255, 0, 0.28);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
 .itemTitle {
-  font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.25;
   color: var(--text-primary);
 }
 
+/* ==========================================================================
+   Dual-Column Content: Responsibility Narrative & Key Impact
+   ========================================================================== */
+
+.contentSplit {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.92fr);
+  column-gap: clamp(2rem, 3.5vw, 3.25rem);
+  row-gap: 1.75rem;
+  align-items: start;
+  margin-bottom: 2.25rem;
+}
+
+.colLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
 .itemDescription {
-  font-size: 0.985rem;
+  font-size: 1.025rem;
   line-height: 1.8;
-  color: var(--text-secondary);
+  color: #d1d1d1;
+}
+
+/* Impact Card */
+.impactCard {
+  background: rgba(22, 22, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 1.35rem 1.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.impactCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.impactCardHeader .colLabel {
+  margin-bottom: 0;
+  color: var(--accent);
+}
+
+.impactPulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.metricsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.metricRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.metricLabel {
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.metricValue {
+  color: #f2f2f2;
+  font-weight: 600;
 }
 
 /* ==========================================================================
-   Gallery Grids & Lightbox Triggers
+   Visual Evidence Showcase: Prominent & High Impact
    ========================================================================== */
 
-.galleryGrid {
-  display: grid;
-  gap: 0.85rem;
-  min-width: 0;
+.visualShowcase {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.85rem;
 }
 
-/* 1 Image: Large Feature Shot */
-.grid1 {
-  grid-template-columns: 1fr;
+.visualHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.15rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.grid1 .imageThumbWrapper {
-  aspect-ratio: 16 / 10;
-  max-height: 340px;
+.photoCountBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
-/* 2 Images: Balanced Side-by-Side */
-.grid2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid2 .imageThumbWrapper {
-  aspect-ratio: 4 / 3;
-}
-
-/* 3 Images: 1 Large Top Feature + 2 Underneath */
-.grid3 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid3 .imageThumbWrapper:first-child {
-  grid-column: 1 / -1;
-  aspect-ratio: 16 / 8.5;
-  max-height: 220px;
-}
-
-.grid3 .imageThumbWrapper:not(:first-child) {
-  aspect-ratio: 4 / 3;
-}
-
-/* 4 Images: Clean 2x2 Grid */
-.grid4 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid4 .imageThumbWrapper {
-  aspect-ratio: 4 / 3;
-}
-
-.imageThumbWrapper {
+/* Image Card Base */
+.imageCard {
   position: relative;
   display: block;
   width: 100%;
   padding: 0;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  background: var(--bg-card-strong);
-  border: 1px solid var(--border-color);
+  background: #0a0a0a;
   cursor: zoom-in;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.imageThumbWrapper:hover {
+.imageCard:hover {
   border-color: var(--accent-line);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px -2px rgba(197, 255, 0, 0.14);
-  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 24px -4px rgba(197, 255, 0, 0.16);
+  transform: translateY(-3px);
 }
 
-.thumbImg {
+.showcaseImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform var(--transition-normal);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.imageThumbWrapper:hover .thumbImg {
-  transform: scale(1.04);
+.imageCard:hover .showcaseImg {
+  transform: scale(1.035);
 }
 
-.zoomOverlay {
+/* Overlay & Controls */
+.imageOverlay {
   position: absolute;
-  right: 0.65rem;
-  bottom: 0.65rem;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, 0.8) 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(8, 8, 8, 0.82);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: var(--text-primary);
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1rem 1.15rem;
   pointer-events: none;
+}
+
+.zoomPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(14, 14, 14, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
   opacity: 0;
-  transform: scale(0.9);
+  transform: translateY(6px);
   transition: opacity var(--transition-fast), transform var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.imageThumbWrapper:hover .zoomOverlay {
+.imageCard:hover .zoomPill {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
   color: var(--accent);
   border-color: var(--accent-line);
 }
 
-/* ==========================================================================
-   Responsive Adaptations
-   ========================================================================== */
-
-@media (max-width: 960px) {
-  .itemCard,
-  .cardReversed {
-    grid-template-columns: 1fr;
-    padding: clamp(1.5rem, 4vw, 2.25rem);
-    gap: 1.75rem;
-  }
-
-  /* Always keep natural mobile reading order: Text first, Gallery below */
-  .cardReversed .itemBody {
-    order: 1;
-  }
-
-  .cardReversed .galleryGrid {
-    order: 2;
-  }
-
-  .grid1 .imageThumbWrapper {
-    aspect-ratio: 16 / 9;
-    max-height: 280px;
-  }
+.photoTag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-@media (max-width: 600px) {
-  .itemsList {
+/* --------------------------------------------------------------------------
+   Gallery Grids: Prominent Sizing
+   -------------------------------------------------------------------------- */
+
+/* 1 Image: Large Feature Banner */
+.gallery1 .imageCard {
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
+  min-height: 320px;
+  border-radius: 18px;
+}
+
+/* 2 Images: Wide Side-by-Side */
+.gallery2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.gallery2 .imageCard {
+  aspect-ratio: 16 / 10;
+  min-height: 290px;
+  border-radius: 16px;
+}
+
+/* 3 Images: Magazine Hero + Secondary Stack */
+.gallery3 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.gallery3Hero {
+  height: 100%;
+  min-height: 420px;
+  border-radius: 18px;
+}
+
+.gallery3Secondary {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  height: 100%;
+}
+
+.gallery3Secondary .imageCard {
+  height: 100%;
+  min-height: 200px;
+  border-radius: 14px;
+}
+
+/* 4 Images: Expansive 2x2 Grand Gallery */
+.gallery4 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.gallery4 .imageCard {
+  aspect-ratio: 16 / 10;
+  min-height: 290px;
+  border-radius: 16px;
+}
+
+/* ==========================================================================
+   Strategic Milestone Banner (Items with No Photos)
+   ========================================================================== */
+
+.milestoneCard {
+  border-left: 4px solid var(--accent);
+}
+
+.strategicInitiativeBanner {
+  margin-top: 1.5rem;
+  padding: 1.35rem 1.6rem;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse 70% 60% at 0% 0%, rgba(197, 255, 0, 0.08) 0%, transparent 80%),
+    linear-gradient(135deg, #171717 0%, #101010 100%);
+  border: 1px solid rgba(197, 255, 0, 0.2);
+}
+
+.bannerHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.bannerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.bannerIcon {
+  color: var(--accent);
+}
+
+.bannerNote {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Responsive Adaptations: Desktop, Tablet, Mobile
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .contentSplit {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  .itemCard {
-    padding: 1.35rem;
-    border-radius: 16px;
+  .gallery3 {
+    grid-template-columns: 1fr;
   }
 
-  .grid3 {
+  .gallery3Hero {
+    min-height: 340px;
+  }
+
+  .gallery3Secondary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
   }
 
-  .grid3 .imageThumbWrapper:first-child {
-    aspect-ratio: 16 / 9;
+  .gallery3Secondary .imageCard {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .impactOverviewBar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 1.5rem;
   }
 
-  .galleryGrid {
-    gap: 0.6rem;
+  .overviewDivider {
+    display: none;
+  }
+
+  .gallery2,
+  .gallery4 {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery1 .imageCard,
+  .gallery2 .imageCard,
+  .gallery4 .imageCard {
+    aspect-ratio: 16 / 10;
+    min-height: 240px;
+  }
+
+  .zoomPill {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .itemCard {
+    padding: 1.4rem;
+    border-radius: 18px;
+  }
+
+  .headerMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery3Secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery3Hero {
+    min-height: 240px;
+  }
+
+  .gallery3Secondary .imageCard {
+    min-height: 200px;
   }
 }
