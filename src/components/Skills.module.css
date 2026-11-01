@@ -6,7 +6,7 @@
 .skillsSection {
   background:
     radial-gradient(45% 40% at 85% 0%, rgba(197, 255, 0, 0.035) 0%, transparent 70%),
-    var(--bg-page);
+    transparent;
 }
 
 /* --------------------------------------------------------------------------
@@ -344,7 +344,7 @@
     grid-auto-rows: minmax(108px, auto);
   }
 
-  .skillList > li:last-child:nth-child(odd) {
+  .skillList>li:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
 

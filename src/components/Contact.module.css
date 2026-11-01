@@ -1,7 +1,7 @@
 .contactSection {
   background:
     radial-gradient(50% 45% at 15% 85%, rgba(197, 255, 0, 0.04) 0%, transparent 70%),
-    var(--bg-page);
+    transparent;
 }
 
 .contactGrid {

@@ -9,6 +9,7 @@ import { Responsibilities } from '@/components/Responsibilities';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { BackToTop } from '@/components/BackToTop';
+import { BackgroundLines } from '@/components/BackgroundLines';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -41,6 +42,7 @@ export default function Home() {
 
   return (
     <div className="portfolioCanvas">
+      <BackgroundLines />
       <Navbar activeSection={activeSection} />
       <main>
         <Hero />

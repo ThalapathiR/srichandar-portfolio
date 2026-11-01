@@ -4,7 +4,7 @@
   padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(4.5rem, 9vw, 7.5rem);
   background:
     radial-gradient(60% 55% at 78% 40%, rgba(197, 255, 0, 0.05) 0%, transparent 70%),
-    var(--bg-page);
+    transparent;
 }
 
 .heroGrid {

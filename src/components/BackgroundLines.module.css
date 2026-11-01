@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Option 2: Modern Dot Matrix / Micro-Grid (Linear & Raycast Style)
+   Subtle, tactile, non-distracting ambient dot texture with soft radial fade.
+   ========================================================================== */
+
+.gridOverlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--bg-page);
+}
+
+/* Subtle dot matrix texture */
+.dotPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0;
+  /* Soft radial vignette so dots dissolve gracefully toward the edges */
+  -webkit-mask-image: radial-gradient(ellipse 75% 55% at 50% 28%, black 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse 75% 55% at 50% 28%, black 25%, transparent 75%);
+}
+
+/* Soft ambient spotlight */
+.ambientGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  background: radial-gradient(ellipse 65% 50% at 50% 30%, rgba(197, 255, 0, 0.06) 0%, transparent 70%);
+  filter: blur(40px);
+}
