@@ -1,8 +1,15 @@
+export interface ProjectPdf {
+  title: string;
+  url: string;
+}
+
 export interface Project {
   id: string;
   numberLabel: string; // "Project 1:", "Project 2:", "Project 3:"
   title: string;
   url?: string;
+  pdfUrl?: string;
+  pdfs?: ProjectPdf[];
   description: string;
   clientRequirement: string;
 }

@@ -70,6 +70,15 @@ export const portfolioData: PortfolioData = {
       numberLabel: "Project 1:",
       title: "The AGE (theAGE.in)",
       url: "https://theage.in",
+      pdfUrl: "/projects/the-age/Landing Page.pdf",
+      pdfs: [
+        { title: "Landing Page", url: "/projects/the-age/Landing Page.pdf" },
+        { title: "Events - Products Overview", url: "/projects/the-age/Events-Products Overview.pdf" },
+        { title: "Gifts - Products Overview", url: "/projects/the-age/Gifts-Products Overview.pdf" },
+        { title: "Offline ADs - Products Overview", url: "/projects/the-age/Offline ADs-Products Overview.pdf" },
+        { title: "Online ADs - Products Overview", url: "/projects/the-age/Online ADs-Products Overview.pdf" },
+        { title: "Contact Information Page", url: "/projects/the-age/Contact Information Page.pdf" }
+      ],
       description: "The AGE (theAGE.in) is a responsive website that brings events, gifting, and advertising services together on a single platform with a clear and engaging user experience.",
       clientRequirement: "The client wanted an attractive, positive, and vibrant visual experience that seamlessly combines all three services. The design and color direction were developed to meet the client’s vision and requirements."
     },
@@ -78,6 +87,20 @@ export const portfolioData: PortfolioData = {
       numberLabel: "Project 2:",
       title: "CIMA SRI (cimasri.vercel.app)",
       url: "https://cimasri.vercel.app",
+      pdfUrl: "/projects/cima-sri/Landing Page.pdf",
+      pdfs: [
+        { title: "Landing Page", url: "/projects/cima-sri/Landing Page.pdf" },
+        { title: "Multi Brand - Products Overview", url: "/projects/cima-sri/Multi Brand-Products Overview.pdf" },
+        { title: "Picanol - Products Overview", url: "/projects/cima-sri/Picanol-Products Overview.pdf" },
+        { title: "Toyota - Products Overview", url: "/projects/cima-sri/Toyota-Products Overview.pdf" },
+        { title: "Tsudakoma - Products Overview", url: "/projects/cima-sri/Tsudakoma-Products Overview.pdf" },
+        { title: "Piping System - Products Overview", url: "/projects/cima-sri/Piping system-Products Overview.pdf" },
+        { title: "Seizeair - Products Overview", url: "/projects/cima-sri/Seizeair-Products Overview.pdf" },
+        { title: "Alcoy - Products Overview", url: "/projects/cima-sri/Alcoy-Products Overview.pdf" },
+        { title: "CAM & Reapet Gear - Products Overview", url: "/projects/cima-sri/CAM and Reapet Gear-Products Overview.pdf" },
+        { title: "Contact Information Page", url: "/projects/cima-sri/Contact Information Page.pdf" },
+        { title: "Contact Page", url: "/projects/cima-sri/Contact.pdf" }
+      ],
       description: "CIMA SRI (cimasri.vercel.app) is a responsive industrial product website featuring multi-brand compressor spares, loom spares, and air piping systems, with optimized navigation and a structured product catalog for customers across India.",
       clientRequirement: "The client wanted a customer-friendly website to showcase 10,000+ products with serial numbers, making product browsing and identification simple. The final design met the client’s expectations and requirements."
     },
@@ -85,6 +108,10 @@ export const portfolioData: PortfolioData = {
       id: "vending-machine-app",
       numberLabel: "Project 3:",
       title: "UX/UI Design — Vending Machine App",
+      pdfUrl: "/projects/vending-machine-app/Vending Machine-Mobile App.pdf",
+      pdfs: [
+        { title: "Vending Machine - Mobile App Presentation", url: "/projects/vending-machine-app/Vending Machine-Mobile App.pdf" }
+      ],
       description: "Designed an IoT-based app for a protein shake vending machine, allowing users to select flavours and make digital payments.",
       clientRequirement: "The client wanted a motivational and engaging app with multiple protein shake flavours, positive animations, and encouraging slides to promote healthy choices. The final design successfully met the client’s expectations."
     }
