@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
 
           <div id="about" className={styles.bioCard}>
             <p className={styles.introParagraph}>
-              {portfolioData.introduction}
+              I’m a <span className={styles.textHighlight}>creative and technology-driven</span> professional passionate about <span className={styles.textHighlight}>designing meaningful digital experiences</span>. I have a background in <span className={styles.textHighlight}>Electrical and Electronics Engineering</span>. Professionally, I have developed skills in <span className={styles.textHighlightAccent}>UX/UI design</span>, <span className={styles.textHighlight}>graphic design</span>, <span className={styles.textHighlight}>digital marketing</span>, and <span className={styles.textHighlight}>digital content creation</span>. I enjoy creating <span className={styles.textHighlight}>user-focused designs</span>, engaging digital content, and practical solutions. I also have experience in <span className={styles.textHighlight}>team leadership</span>, client communication, business networking, and program coordination. My technical background includes <span className={styles.textHighlight}>IoT, Robotics, Arduino, and Embedded Systems</span>. I’m a self-motivated professional who enjoys learning, collaborating, solving problems, and turning ideas into impactful solutions.
             </p>
           </div>
 

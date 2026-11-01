@@ -11,9 +11,9 @@
   position: relative;
   z-index: 1; /* above the contained splash canvas */
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   align-items: center;
-  gap: clamp(2.5rem, 6vw, 6rem);
+  gap: clamp(2rem, 5vw, 5rem);
 }
 
 /* ==========================================================================
@@ -78,21 +78,34 @@
   flex-shrink: 0;
 }
 
+/* Bio: Clean Editorial Typography (No Boxed Card) */
 .bioCard {
   width: 100%;
-  max-width: 620px;
-  background: linear-gradient(135deg, #171717, #101010);
-  border: 1px solid #242424;
-  border-radius: var(--radius-lg);
-  padding: clamp(1.35rem, 2.6vw, 2rem);
+  max-width: 560px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   margin-bottom: 2.25rem;
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 .introParagraph {
-  font-size: clamp(0.9375rem, 1.1vw, 1rem);
+  font-size: clamp(0.975rem, 1.15vw, 1.05rem);
   line-height: 1.85;
   color: var(--text-secondary);
+}
+
+.textHighlight {
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.textHighlightAccent {
+  color: var(--accent);
+  font-weight: 600;
+  transition: color var(--transition-fast);
 }
 
 /* Buttons */
@@ -125,94 +138,135 @@
   border-radius: 50%;
   border: 1px solid var(--border-strong);
   color: #b8b8ba;
+  transition: all var(--transition-fast);
 }
 
 .socialIconLink:hover {
   color: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Right Column: Portrait
+   Right Column: Prominent, Expansive Portrait (Clean & Clear, No Boxed Card)
    ========================================================================== */
 
 .rightCol {
   display: flex;
+  align-items: center;
   justify-content: center;
   min-width: 0;
+  width: 100%;
+  position: relative;
 }
 
 .portraitStage {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   isolation: isolate;
 }
 
-/* Static offset outline behind the portrait */
+/* Ambient backlight glow behind the subject */
 .portraitStage::before {
   content: "";
   position: absolute;
-  inset: 14px -10px -14px 10px;
-  border: 1px solid var(--accent-line);
-  border-radius: var(--radius-lg);
-  transform: rotate(-2deg);
-  z-index: -1;
+  width: 115%;
+  height: 115%;
+  top: -7%;
+  left: -7%;
+  background: radial-gradient(
+    circle at 50% 38%,
+    rgba(197, 255, 0, 0.16) 0%,
+    rgba(197, 255, 0, 0.04) 48%,
+    transparent 72%
+  );
   pointer-events: none;
+  z-index: -1;
+  filter: blur(20px);
 }
 
 .portraitFrame {
   position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3.8 / 4.8;
+  min-height: clamp(480px, 60vh, 640px);
   padding: 0;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--bg-card);
+  border: none;
+  background: transparent;
   cursor: zoom-in;
+  overflow: hidden;
+  border-radius: 28px;
+  -webkit-mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portraitFrame:hover {
+  transform: scale(1.015);
 }
 
 .profileImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 15%;
   display: block;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portraitFrame:hover .profileImg {
+  transform: scale(1.035);
 }
 
 .zoomBadge {
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
+  right: 1.5rem;
+  bottom: 1.75rem;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 999px;
-  background: rgba(8, 8, 8, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 8, 8, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: #e5e5e5;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
   pointer-events: none;
+  z-index: 2;
 }
 
 .portraitFrame:hover .zoomBadge {
+  opacity: 1;
+  transform: translateY(0);
   color: var(--accent);
   border-color: var(--accent-line);
 }
 
 /* ==========================================================================
-   Responsive
+   Responsive Adaptations
    ========================================================================== */
 
 @media (max-width: 1024px) {
   .heroGrid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 2.5rem;
+  }
+
+  .portraitStage {
+    max-width: 480px;
   }
 }
 
@@ -224,11 +278,16 @@
 
   .rightCol {
     order: -1;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .portraitStage {
-    max-width: 300px;
+    max-width: 380px;
+  }
+
+  .portraitFrame {
+    min-height: 420px;
+    aspect-ratio: 4 / 5;
   }
 
   .bioCard {
@@ -238,7 +297,11 @@
 
 @media (max-width: 480px) {
   .portraitStage {
-    max-width: 240px;
+    max-width: 310px;
+  }
+
+  .portraitFrame {
+    min-height: 350px;
   }
 
   .rolePill {
