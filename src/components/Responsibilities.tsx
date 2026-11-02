@@ -252,13 +252,6 @@ export const Responsibilities: React.FC = () => {
                 {/* 2. MIDDLE: Visual Evidence Showcase (Directly under the Title!) */}
                 {hasImages && (
                   <div className={styles.visualShowcase}>
-                    <div className={styles.visualHeader}>
-                      <span className={styles.colLabel}>// VISUAL EVIDENCE</span>
-                      <span className={styles.photoCountBadge}>
-                        {item.images.length} {item.images.length === 1 ? 'PHOTO' : 'PHOTOS'} • CLICK TO ENLARGE
-                      </span>
-                    </div>
-
                     {/* Single Image Showcase */}
                     {item.images.length === 1 && (
                       <div className={styles.gallery1}>
@@ -284,10 +277,8 @@ export const Responsibilities: React.FC = () => {
                           />
                           <div className={styles.imageOverlay}>
                             <div className={styles.zoomPill}>
-                              <ZoomIn size={15} />
-                              <span>View High-Res Photo</span>
+                              <ZoomIn size={16} />
                             </div>
-                            <span className={styles.photoTag}>Full Showcase</span>
                           </div>
                         </button>
                       </div>
@@ -320,8 +311,7 @@ export const Responsibilities: React.FC = () => {
                             />
                             <div className={styles.imageOverlay}>
                               <div className={styles.zoomPill}>
-                                <ZoomIn size={15} />
-                                <span>Enlarge</span>
+                                <ZoomIn size={16} />
                               </div>
                               <span className={styles.photoTag}>
                                 {imgIdx + 1} / 2
@@ -358,8 +348,7 @@ export const Responsibilities: React.FC = () => {
                           />
                           <div className={styles.imageOverlay}>
                             <div className={styles.zoomPill}>
-                              <ZoomIn size={15} />
-                              <span>Feature Shot • Enlarge</span>
+                              <ZoomIn size={16} />
                             </div>
                             <span className={styles.photoTag}>1 / 3</span>
                           </div>
@@ -393,8 +382,7 @@ export const Responsibilities: React.FC = () => {
                                 />
                                 <div className={styles.imageOverlay}>
                                   <div className={styles.zoomPill}>
-                                    <ZoomIn size={14} />
-                                    <span>Enlarge</span>
+                                    <ZoomIn size={16} />
                                   </div>
                                   <span className={styles.photoTag}>
                                     {actualIdx + 1} / 3
@@ -434,8 +422,7 @@ export const Responsibilities: React.FC = () => {
                             />
                             <div className={styles.imageOverlay}>
                               <div className={styles.zoomPill}>
-                                <ZoomIn size={15} />
-                                <span>Enlarge</span>
+                                <ZoomIn size={16} />
                               </div>
                               <span className={styles.photoTag}>
                                 {imgIdx + 1} / {item.images.length}

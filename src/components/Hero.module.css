@@ -1,7 +1,7 @@
 .heroSection {
   position: relative;
   overflow: hidden;
-  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(4.5rem, 9vw, 7.5rem);
+  padding: clamp(1.75rem, 3.5vw, 2.75rem) 0 clamp(4rem, 7vw, 6rem);
   background:
     radial-gradient(60% 55% at 78% 40%, rgba(197, 255, 0, 0.05) 0%, transparent 70%),
     transparent;
@@ -12,7 +12,7 @@
   z-index: 1; /* above the contained splash canvas */
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(2.5rem, 6vw, 6rem);
 }
 
@@ -154,13 +154,17 @@
 .rightCol {
   display: flex;
   justify-content: center;
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-height) + 1.25rem);
+  padding-top: 0.35rem; /* Optical micro-alignment with the top headline */
   min-width: 0;
 }
 
 .portraitStage {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: clamp(320px, 26vw, 410px);
   isolation: isolate;
 }
 
@@ -240,6 +244,8 @@
   .rightCol {
     order: -1;
     justify-content: flex-start;
+    position: static;
+    padding-top: 0;
   }
 
   .portraitStage {
