@@ -109,6 +109,61 @@ const RESPONSIBILITY_METADATA: Record<string, ResponsibilityMeta> = {
   }
 };
 
+/**
+ * Double-Color Theme Breakdown for all 10 Responsibility item titles:
+ * - Part 1: Crisp Pure White (#ffffff)
+ * - Ampersand '&': Signature Electric Lime (#c5ff00)
+ * - Part 2: Warm Radiant Amber Gold (#ffc25c -> #ff9500)
+ * All titles remain strictly 100% verbatim to original document content.
+ */
+const TITLE_PARTS: Record<string, { part1: string; hasAmpersand?: boolean; part2: string }> = {
+  'design-leadership': {
+    part1: 'Design Leadership',
+    hasAmpersand: true,
+    part2: 'Team Management:'
+  },
+  'corporate-representation': {
+    part1: 'Corporate Representation',
+    hasAmpersand: true,
+    part2: 'Business Networking:'
+  },
+  'event-brand-representation': {
+    part1: 'Event & Brand',
+    part2: 'Representation:'
+  },
+  'skill-based-innovative-development': {
+    part1: 'Skill-Based Innovative',
+    part2: 'Development Program:'
+  },
+  'atl-innovation-training': {
+    part1: 'ATL Innovation',
+    part2: 'Training Program:'
+  },
+  'atl-educator-training': {
+    part1: 'ATL Educator',
+    part2: 'Training Program:'
+  },
+  'atl-lab-survey': {
+    part1: 'ATL Lab Survey',
+    hasAmpersand: true,
+    part2: 'Trainer Coordination:'
+  },
+  'school-coordination': {
+    part1: 'School Coordination',
+    hasAmpersand: true,
+    part2: 'Program Management:'
+  },
+  'rural-innovation': {
+    part1: 'Rural Innovation',
+    part2: 'Program:'
+  },
+  'event-hosting': {
+    part1: 'Event Hosting',
+    hasAmpersand: true,
+    part2: 'School Engagement'
+  }
+};
+
 export const Responsibilities: React.FC = () => {
   const [lightboxData, setLightboxData] = useState<{
     images: string[];
@@ -176,7 +231,22 @@ export const Responsibilities: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 className={styles.itemTitle}>{item.title}</h3>
+                  <h3 className={styles.itemTitle}>
+                    {(() => {
+                      const split = TITLE_PARTS[item.id];
+                      if (!split) return item.title;
+                      return (
+                        <>
+                          <span className={styles.titlePrimary}>{split.part1}</span>
+                          {split.hasAmpersand && (
+                            <span className={styles.titleAmpersand}> &amp; </span>
+                          )}
+                          {!split.hasAmpersand && ' '}
+                          <span className={styles.titleAccent}>{split.part2}</span>
+                        </>
+                      );
+                    })()}
+                  </h3>
                 </div>
 
                 {/* 2. MIDDLE: Visual Evidence Showcase (Directly under the Title!) */}

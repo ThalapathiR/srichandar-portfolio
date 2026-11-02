@@ -164,6 +164,41 @@
   color: var(--text-primary);
 }
 
+.titlePrimary {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.titleAmpersand {
+  color: var(--accent);
+  font-weight: 700;
+  display: inline-block;
+  margin: 0 0.15rem;
+  text-shadow: 0 0 10px rgba(197, 255, 0, 0.35);
+  transition: text-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.itemCard:hover .titleAmpersand {
+  text-shadow: 0 0 16px rgba(197, 255, 0, 0.6);
+}
+
+.titleAccent {
+  display: inline;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffaa00;
+  background: linear-gradient(135deg, #ffd074 0%, #ff9500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(255, 170, 0, 0.2));
+  transition: filter var(--transition-fast);
+}
+
+.itemCard:hover .titleAccent {
+  filter: drop-shadow(0 3px 12px rgba(255, 170, 0, 0.35));
+}
+
 /* 2. MIDDLE: Visual Evidence Showcase (Directly below Title) */
 .visualShowcase {
   margin-top: 1.25rem;
