@@ -75,9 +75,6 @@ export const Footer: React.FC = () => {
           <div className={styles.copyright}>
             &copy; {currentYear} {portfolioData.name}. All rights reserved.
           </div>
-          <div className={styles.builtWith}>
-            Designed with <span className={styles.builtWithHighlight}>Next.js</span>, <span className={styles.builtWithHighlight}>TypeScript</span> &amp; <span className={styles.builtWithHighlight}>Pure CSS</span>.
-          </div>
         </div>
       </div>
     </footer>
