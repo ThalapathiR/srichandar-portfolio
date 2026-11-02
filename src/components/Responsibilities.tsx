@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from './Responsibilities.module.css';
 import { portfolioData } from '@/data/portfolioData';
-import { ZoomIn, Award, MapPin, Users, BookOpen } from 'lucide-react';
+import { ZoomIn, Award } from 'lucide-react';
 import { ImageLightbox } from './ImageLightbox';
 
 interface ImpactMetric {
@@ -135,20 +135,21 @@ export const Responsibilities: React.FC = () => {
   return (
     <section id="responsibilities" className={`section ${styles.responsibilitiesSection}`}>
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header with Warm Amber/Gold Differentiated Color */}
         <div className="section-header">
           <div className="section-header-main">
-            <div className="section-badge">
-              <span className="section-index">03</span>
-              <span>Fieldwork &amp; Leadership</span>
+            <div className={`section-badge ${styles.sectionBadgeAmber}`}>
+              <span className={`section-index ${styles.sectionIndexAmber}`}>03</span>
+              <span className={styles.sectionBadgeTextAmber}>Fieldwork &amp; Leadership</span>
             </div>
-            <h2 className="section-title">
-              {portfolioData.responsibilityHeading}
+            <h2 className={`section-title ${styles.sectionTitleAmber}`}>
+              professional responsibility <br className={styles.desktopBr} />
+              and <span className={styles.titleHighlightAmber}>impact</span>
             </h2>
           </div>
         </div>
 
-        {/* Responsibilities Editorial Cards */}
+        {/* Responsibilities Editorial Cards (Solution 1: Sandwich Layout) */}
         <div className={styles.itemsList}>
           {portfolioData.responsibilities.map((item, index) => {
             const indexStr = (index + 1).toString().padStart(2, '0');
@@ -161,7 +162,7 @@ export const Responsibilities: React.FC = () => {
                 id={`resp-${item.id}`}
                 className={`${styles.itemCard} ${!hasImages ? styles.milestoneCard : ''}`}
               >
-                {/* 1. Card Top Header */}
+                {/* 1. TOP: Title & Scope Header */}
                 <div className={styles.cardHeader}>
                   <div className={styles.headerMeta}>
                     <div className={styles.badgeRow}>
@@ -178,34 +179,7 @@ export const Responsibilities: React.FC = () => {
                   <h3 className={styles.itemTitle}>{item.title}</h3>
                 </div>
 
-                {/* 2. Dual-Column Content: Responsibility Narrative & Key Impact */}
-                <div className={styles.contentSplit}>
-                  <div className={styles.narrativeCol}>
-                    <span className={styles.colLabel}>// RESPONSIBILITY &amp; SCOPE</span>
-                    <p className={styles.itemDescription}>{item.description}</p>
-                  </div>
-
-                  {meta?.metrics && (
-                    <div className={styles.impactCol}>
-                      <div className={styles.impactCard}>
-                        <div className={styles.impactCardHeader}>
-                          <span className={styles.impactPulseDot} />
-                          <span className={styles.colLabel}>// KEY IMPACT &amp; SCOPE</span>
-                        </div>
-                        <div className={styles.metricsList}>
-                          {meta.metrics.map((m, mIdx) => (
-                            <div key={mIdx} className={styles.metricRow}>
-                              <span className={styles.metricLabel}>{m.label}:</span>
-                              <span className={styles.metricValue}>{m.value}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* 3. Visual Evidence Showcase (Large & Prominent) */}
+                {/* 2. MIDDLE: Visual Evidence Showcase (Directly under the Title!) */}
                 {hasImages && (
                   <div className={styles.visualShowcase}>
                     <div className={styles.visualHeader}>
@@ -404,7 +378,7 @@ export const Responsibilities: React.FC = () => {
                   </div>
                 )}
 
-                {/* 4. Strategic Milestone Showcase (for Items with No Photos) */}
+                {/* Strategic Milestone Banner for Items with No Photos */}
                 {!hasImages && (
                   <div className={styles.strategicInitiativeBanner}>
                     <div className={styles.bannerHeader}>
@@ -418,6 +392,33 @@ export const Responsibilities: React.FC = () => {
                     </p>
                   </div>
                 )}
+
+                {/* 3. BOTTOM: Responsibility Narrative & Key Impact (Anchors and finishes the card!) */}
+                <div className={styles.contentSplit}>
+                  <div className={styles.narrativeCol}>
+                    <span className={styles.colLabel}>// RESPONSIBILITY &amp; SCOPE</span>
+                    <p className={styles.itemDescription}>{item.description}</p>
+                  </div>
+
+                  {meta?.metrics && (
+                    <div className={styles.impactCol}>
+                      <div className={styles.impactCard}>
+                        <div className={styles.impactCardHeader}>
+                          <span className={styles.impactPulseDot} />
+                          <span className={styles.colLabel}>// KEY IMPACT &amp; SCOPE</span>
+                        </div>
+                        <div className={styles.metricsList}>
+                          {meta.metrics.map((m, mIdx) => (
+                            <div key={mIdx} className={styles.metricRow}>
+                              <span className={styles.metricLabel}>{m.label}:</span>
+                              <span className={styles.metricValue}>{m.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             );
           })}

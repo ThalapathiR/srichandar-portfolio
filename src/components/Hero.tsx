@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './Hero.module.css';
 import { portfolioData } from '@/data/portfolioData';
 import { ZoomIn, ArrowUpRight } from 'lucide-react';
-import { LinkedinIcon, InstagramIcon, GithubIcon } from './Icons';
+import { LinkedinIcon, InstagramIcon } from './Icons';
 import { ImageLightbox } from './ImageLightbox';
 import SplashCursor from './SplashCursor';
 import FoldText from './FoldText';
@@ -102,7 +102,7 @@ export const Hero: React.FC = () => {
             </a>
           </div>
 
-          {/* Social Row: LinkedIn, Instagram, GitHub */}
+          {/* Social Row: LinkedIn, Instagram */}
           <div className={styles.socialRow}>
             <a
               href="https://linkedin.com/in/srichandar03"
@@ -124,17 +124,6 @@ export const Hero: React.FC = () => {
               title="Instagram"
             >
               <InstagramIcon size={17} />
-            </a>
-
-            <a
-              href="https://github.com/srichandar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIconLink}
-              aria-label="GitHub"
-              title="GitHub"
-            >
-              <GithubIcon size={17} />
             </a>
           </div>
         </div>

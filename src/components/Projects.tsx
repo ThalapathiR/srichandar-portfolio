@@ -35,12 +35,12 @@ export const Projects: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-header-main">
-            <div className="section-badge">
-              <span className="section-index">02</span>
-              <span>Featured Case Studies</span>
+            <div className={`section-badge ${styles.sectionBadgeLime}`}>
+              <span className={`section-index ${styles.sectionIndexLime}`}>02</span>
+              <span className={styles.sectionBadgeTextLime}>Featured Case Studies</span>
             </div>
             <h2 className="section-title">
-              {portfolioData.projectsHeading}
+              <span className={styles.titleHighlightLime}>{portfolioData.projectsHeading}</span>
             </h2>
           </div>
           <p className={`section-subtitle ${styles.subheading}`}>

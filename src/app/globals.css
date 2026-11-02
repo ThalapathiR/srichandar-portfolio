@@ -196,11 +196,17 @@ a {
    ========================================================================== */
 
 .section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section-header:has(.section-subtitle) {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.42fr);
   align-items: end;
   gap: 2.5rem;
-  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .section-header-main {

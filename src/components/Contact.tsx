@@ -9,14 +9,12 @@ import {
   MapPin, 
   Copy, 
   Check, 
-  Calendar,
   ArrowUpRight
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons';
+import { LinkedinIcon, InstagramIcon } from './Icons';
 
 export const Contact: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyEmail = async () => {
     try {
@@ -28,180 +26,121 @@ export const Contact: React.FC = () => {
     }
   };
 
-  const handleCopyPhone = async () => {
-    if (!portfolioData.contactInfo.phone) return;
-    try {
-      await navigator.clipboard.writeText(portfolioData.contactInfo.phone);
-      setCopiedPhone(true);
-      setTimeout(() => setCopiedPhone(false), 2500);
-    } catch {
-      // Fallback
-    }
-  };
-
   return (
     <section id="contact" className={`section ${styles.contactSection}`}>
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-header-main">
-            <div className="section-badge">
-              <span className="section-index">04</span>
-              <span>Direct Channel</span>
-            </div>
-            <h2 className="section-title">
-              Get in <span className="gradient-text">Touch</span>
-            </h2>
+        <div className={styles.headerBlock}>
+          <div className={styles.sectionBadge}>
+            <span className={styles.sectionIndex}>04</span>
+            <span className={styles.sectionBadgeText}>Direct Channel</span>
           </div>
+          <h2 className={styles.sectionTitle}>
+            Get in <span className={styles.titleHighlight}>Touch.</span>
+          </h2>
         </div>
 
-        <div className={styles.contactWrapper}>
-          <div className={styles.contactCard}>
-            <div className={styles.contactCardInner}>
-              {/* Primary Action / Direct Email & Phone */}
-              <div className={styles.primaryAction}>
-                <span className={styles.actionLabel}>DIRECT INQUIRY</span>
-                <a
-                  href={`mailto:${portfolioData.contactInfo.email}`}
-                  className={styles.emailDisplay}
-                >
-                  {portfolioData.contactInfo.email}
-                  <ArrowUpRight size={24} className={styles.emailArrow} />
-                </a>
+        {/* Unified Editorial Contact Showcase */}
+        <div className={styles.contactContainer}>
+          {/* 1. Hero Email Action Banner */}
+          <div className={styles.emailBanner}>
+            <div className={styles.emailLeft}>
+              <span className={styles.bannerEyebrow}>DIRECT EMAIL</span>
+              <a
+                href={`mailto:${portfolioData.contactInfo.email}`}
+                className={styles.emailLink}
+              >
+                {portfolioData.contactInfo.email}
+                <ArrowUpRight size={22} className={styles.emailArrow} />
+              </a>
+            </div>
 
-                <div className={styles.emailActions}>
-                  <button
-                    type="button"
-                    className={styles.copyBtn}
-                    onClick={handleCopyEmail}
-                    aria-label="Copy email address"
-                  >
-                    {copiedEmail ? (
-                      <>
-                        <Check size={16} />
-                        <span>Copied to Clipboard!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={16} />
-                        <span>Copy Email</span>
-                      </>
-                    )}
-                  </button>
+            <div className={styles.emailActions}>
+              <a
+                href={`mailto:${portfolioData.contactInfo.email}`}
+                className={styles.primaryBtn}
+              >
+                <Mail size={16} />
+                <span>Send Email</span>
+              </a>
 
-                  <a
-                    href={`mailto:${portfolioData.contactInfo.email}`}
-                    className={styles.mailToBtn}
-                  >
-                    <Mail size={16} />
-                    <span>Send Email</span>
-                  </a>
-
-                  {portfolioData.contactInfo.phone && (
-                    <a
-                      href={`tel:${portfolioData.contactInfo.phone}`}
-                      className={styles.phoneActionBtn}
-                      title="Call directly"
-                    >
-                      <Phone size={16} />
-                      <span>{portfolioData.contactInfo.phone}</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Meta Row: Phone, Location & Availability */}
-              <div className={styles.metaRow}>
-                {portfolioData.contactInfo.phone && (
-                  <div className={styles.metaItem}>
-                    <div className={styles.metaIcon}>
-                      <Phone size={18} />
-                    </div>
-                    <div>
-                      <span className={styles.metaLabel}>PHONE / MOBILE</span>
-                      <a 
-                        href={`tel:${portfolioData.contactInfo.phone}`}
-                        className={styles.metaLink}
-                      >
-                        {portfolioData.contactInfo.phone}
-                      </a>
-                    </div>
-                  </div>
+              <button
+                type="button"
+                className={styles.secondaryBtn}
+                onClick={handleCopyEmail}
+                aria-label="Copy email address"
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check size={16} />
+                    <span>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={16} />
+                    <span>Copy</span>
+                  </>
                 )}
+              </button>
+            </div>
+          </div>
 
-                <div className={styles.metaDivider} />
-
-                <div className={styles.metaItem}>
-                  <div className={styles.metaIcon}>
-                    <MapPin size={18} />
+          {/* 2. Direct Channels Grid */}
+          <div className={styles.channelsGrid}>
+            {/* Phone Card */}
+            {portfolioData.contactInfo.phone && (
+              <a
+                href={`tel:${portfolioData.contactInfo.phone}`}
+                className={styles.channelCard}
+              >
+                <div className={styles.cardTop}>
+                  <div className={styles.iconBox}>
+                    <Phone size={18} />
                   </div>
-                  <div>
-                    <span className={styles.metaLabel}>LOCATION</span>
-                    <span className={styles.metaValue}>{portfolioData.contactInfo.location}</span>
-                  </div>
+                  <ArrowUpRight size={16} className={styles.cardArrow} />
                 </div>
+                <span className={styles.cardLabel}>PHONE / MOBILE</span>
+                <span className={styles.cardValue}>{portfolioData.contactInfo.phone}</span>
+                <span className={styles.cardSub}>Call or WhatsApp</span>
+              </a>
+            )}
 
-                <div className={styles.metaDivider} />
-
-                <div className={styles.metaItem}>
-                  <div className={styles.metaIcon}>
-                    <Calendar size={18} />
-                  </div>
-                  <div>
-                    <span className={styles.metaLabel}>AVAILABILITY</span>
-                    <span className={styles.metaValue}>{portfolioData.contactInfo.availability}</span>
-                  </div>
+            {/* Location & Status Card */}
+            <div className={styles.channelCardStatic}>
+              <div className={styles.cardTop}>
+                <div className={styles.iconBox}>
+                  <MapPin size={18} />
                 </div>
               </div>
+              <span className={styles.cardLabel}>LOCATION</span>
+              <span className={styles.cardValue}>{portfolioData.contactInfo.location}</span>
+              <span className={styles.cardSub}>{portfolioData.contactInfo.availability}</span>
+            </div>
 
-              {/* Verified Social Channels */}
-              <div className={styles.socialChannels}>
+            {/* Verified Social Presence Card */}
+            <div className={styles.socialCardWide}>
+              <span className={styles.cardLabel}>ONLINE PROFILES</span>
+              <div className={styles.socialButtonsRow}>
                 <a
                   href={portfolioData.socialLinks.find(s => s.platform === 'LinkedIn')?.url || 'https://linkedin.com/in/srichandar03'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.socialLinkCard}
+                  className={styles.socialPill}
                 >
-                  <div className={styles.socialIconBox}>
-                    <LinkedinIcon size={20} />
-                  </div>
-                  <div className={styles.socialInfo}>
-                    <span className={styles.socialName}>LinkedIn</span>
-                    <span className={styles.socialHandle}>srichandar03</span>
-                  </div>
-                  <ArrowUpRight size={16} className={styles.socialArrow} />
+                  <LinkedinIcon size={16} />
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={13} />
                 </a>
 
                 <a
                   href={portfolioData.socialLinks.find(s => s.platform === 'Instagram')?.url || 'https://www.instagram.com/chocoboy.srii?rpxt=MTNsdnQ5MW1hd3JrbQ=='}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.socialLinkCard}
+                  className={styles.socialPill}
                 >
-                  <div className={styles.socialIconBox}>
-                    <InstagramIcon size={20} />
-                  </div>
-                  <div className={styles.socialInfo}>
-                    <span className={styles.socialName}>Instagram</span>
-                    <span className={styles.socialHandle}>@chocoboy.srii</span>
-                  </div>
-                  <ArrowUpRight size={16} className={styles.socialArrow} />
-                </a>
-
-                <a
-                  href={portfolioData.socialLinks.find(s => s.platform === 'GitHub')?.url || 'https://github.com/srichandar'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.socialLinkCard}
-                >
-                  <div className={styles.socialIconBox}>
-                    <GithubIcon size={20} />
-                  </div>
-                  <div className={styles.socialInfo}>
-                    <span className={styles.socialName}>GitHub</span>
-                    <span className={styles.socialHandle}>Code &amp; projects</span>
-                  </div>
-                  <ArrowUpRight size={16} className={styles.socialArrow} />
+                  <InstagramIcon size={16} />
+                  <span>Instagram</span>
+                  <ArrowUpRight size={13} />
                 </a>
               </div>
             </div>

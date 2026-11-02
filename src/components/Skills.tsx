@@ -82,12 +82,12 @@ export const Skills: React.FC = () => {
         {/* Section Header */}
         <div className={`section-header ${styles.header}`}>
           <div className="section-header-main">
-            <div className="section-badge">
-              <span className="section-index">01</span>
-              <span>Expertise &amp; Capabilities</span>
+            <div className={`section-badge ${styles.sectionBadgeCyan}`}>
+              <span className={`section-index ${styles.sectionIndexCyan}`}>01</span>
+              <span className={styles.sectionBadgeTextCyan}>Expertise &amp; Capabilities</span>
             </div>
             <h2 className="section-title">
-              {portfolioData.skillsHeading}
+              Skills and <span className={styles.titleHighlightCyan}>technologies</span>
             </h2>
           </div>
         </div>

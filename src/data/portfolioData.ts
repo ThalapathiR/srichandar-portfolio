@@ -23,10 +23,6 @@ export const portfolioData: PortfolioData = {
     {
       platform: "Instagram",
       url: "https://www.instagram.com/chocoboy.srii?rpxt=MTNsdnQ5MW1hd3JrbQ=="
-    },
-    {
-      platform: "GitHub",
-      url: "https://github.com/srichandar"
     }
   ],
 
