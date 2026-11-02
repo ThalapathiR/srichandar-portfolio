@@ -146,32 +146,6 @@ export const Responsibilities: React.FC = () => {
               {portfolioData.responsibilityHeading}
             </h2>
           </div>
-          <p className="section-subtitle">
-            Demonstrated impact across design leadership, corporate networking, technical training, school coordination, and community innovation programs.
-          </p>
-        </div>
-
-        {/* Executive Highlights Summary Banner */}
-        <div className={styles.impactOverviewBar}>
-          <div className={styles.overviewItem}>
-            <span className={styles.overviewValue}>10+</span>
-            <span className={styles.overviewLabel}>Initiatives Led</span>
-          </div>
-          <div className={styles.overviewDivider} />
-          <div className={styles.overviewItem}>
-            <span className={styles.overviewValue}>30+</span>
-            <span className={styles.overviewLabel}>Schools Coordinated</span>
-          </div>
-          <div className={styles.overviewDivider} />
-          <div className={styles.overviewItem}>
-            <span className={styles.overviewValue}>21,000+</span>
-            <span className={styles.overviewLabel}>Students Engaged</span>
-          </div>
-          <div className={styles.overviewDivider} />
-          <div className={styles.overviewItem}>
-            <span className={styles.overviewValue}>8</span>
-            <span className={styles.overviewLabel}>Districts Covered</span>
-          </div>
         </div>
 
         {/* Responsibilities Editorial Cards */}

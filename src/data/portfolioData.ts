@@ -9,7 +9,8 @@ export const portfolioData: PortfolioData = {
   profileImage: "/images/image_portolio.png",
 
   contactInfo: {
-    email: "srichandar.dev@gmail.com",
+    email: "Srichandar03@gmail.com",
+    phone: "9025494776",
     location: "Tamil Nadu, India",
     availability: "Open to High-Impact Design, Marketing & Program Roles",
   },
@@ -17,7 +18,11 @@ export const portfolioData: PortfolioData = {
   socialLinks: [
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com/in/srichandar"
+      url: "https://linkedin.com/in/srichandar03"
+    },
+    {
+      platform: "Instagram",
+      url: "https://www.instagram.com/chocoboy.srii?rpxt=MTNsdnQ5MW1hd3JrbQ=="
     },
     {
       platform: "GitHub",

@@ -8,61 +8,6 @@
   padding: clamp(4.5rem, 8vw, 7.5rem) 0;
 }
 
-/* ==========================================================================
-   Executive Highlights Summary Ribbon
-   ========================================================================== */
-
-.impactOverviewBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(197, 255, 0, 0.05) 0%, transparent 80%),
-    linear-gradient(180deg, #161616 0%, #101010 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.5rem, 3.5vw, 2.75rem);
-  margin-top: 2rem;
-  margin-bottom: clamp(2.5rem, 4vw, 3.75rem);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-}
-
-.overviewItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  flex: 1;
-}
-
-.overviewValue {
-  font-family: var(--font-mono);
-  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.overviewLabel {
-  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: 0.35rem;
-}
-
-.overviewDivider {
-  width: 1px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ==========================================================================
-   Items List & Editorial Showcase Cards
-   ========================================================================== */
-
 .itemsList {
   display: flex;
   flex-direction: column;
@@ -494,17 +439,6 @@
 }
 
 @media (max-width: 768px) {
-  .impactOverviewBar {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    padding: 1.5rem;
-  }
-
-  .overviewDivider {
-    display: none;
-  }
-
   .gallery2,
   .gallery4 {
     grid-template-columns: 1fr;

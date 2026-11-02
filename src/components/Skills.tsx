@@ -90,9 +90,6 @@ export const Skills: React.FC = () => {
               {portfolioData.skillsHeading}
             </h2>
           </div>
-          <p className={`section-subtitle ${styles.subtitle}`}>
-            Core capabilities spanning UX/UI design, digital marketing, and technical program coordination.
-          </p>
         </div>
 
         {/* Category panels: Design & Digital | Technology & Leadership */}

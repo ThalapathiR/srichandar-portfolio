@@ -48,6 +48,7 @@ export interface PortfolioData {
   responsibilities: ResponsibilityItem[];
   contactInfo: {
     email: string;
+    phone?: string;
     location: string;
     availability: string;
   };
