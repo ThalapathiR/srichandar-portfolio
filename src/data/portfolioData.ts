@@ -11,7 +11,7 @@ export const portfolioData: PortfolioData = {
   contactInfo: {
     email: "Srichandar03@gmail.com",
     phone: "9025494776",
-    location: "Tamil Nadu, India",
+    location: "Coimbatore, Tamil Nadu, India",
     availability: "Open to High-Impact Design, Marketing & Program Roles",
   },
 

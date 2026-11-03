@@ -164,6 +164,18 @@ const TITLE_PARTS: Record<string, { part1: string; hasAmpersand?: boolean; part2
   }
 };
 
+/** Custom vertical framing for portrait orientation photos so heads and subjects are never cropped */
+const IMAGE_OBJECT_POSITIONS: Record<string, string> = {
+  '/images/image4.jpeg': 'center 38%',
+  '/images/image10.jpeg': 'center 20%',
+  '/images/image11.jpeg': 'center 22%',
+};
+
+const getImageStyle = (src: string): React.CSSProperties | undefined => {
+  const pos = IMAGE_OBJECT_POSITIONS[src];
+  return pos ? { objectPosition: pos } : undefined;
+};
+
 export const Responsibilities: React.FC = () => {
   const [lightboxData, setLightboxData] = useState<{
     images: string[];
@@ -273,6 +285,7 @@ export const Responsibilities: React.FC = () => {
                             src={item.images[0]}
                             alt={`${item.title} photo`}
                             className={styles.showcaseImg}
+                            style={getImageStyle(item.images[0])}
                             loading="lazy"
                           />
                           <div className={styles.imageOverlay}>
@@ -307,6 +320,7 @@ export const Responsibilities: React.FC = () => {
                               src={imgSrc}
                               alt={`${item.title} photo ${imgIdx + 1}`}
                               className={styles.showcaseImg}
+                              style={getImageStyle(imgSrc)}
                               loading="lazy"
                             />
                             <div className={styles.imageOverlay}>
@@ -344,6 +358,7 @@ export const Responsibilities: React.FC = () => {
                             src={item.images[0]}
                             alt={`${item.title} photo 1`}
                             className={styles.showcaseImg}
+                            style={getImageStyle(item.images[0])}
                             loading="lazy"
                           />
                           <div className={styles.imageOverlay}>
@@ -378,6 +393,7 @@ export const Responsibilities: React.FC = () => {
                                   src={imgSrc}
                                   alt={`${item.title} photo ${actualIdx + 1}`}
                                   className={styles.showcaseImg}
+                                  style={getImageStyle(imgSrc)}
                                   loading="lazy"
                                 />
                                 <div className={styles.imageOverlay}>
@@ -418,6 +434,7 @@ export const Responsibilities: React.FC = () => {
                               src={imgSrc}
                               alt={`${item.title} photo ${imgIdx + 1}`}
                               className={styles.showcaseImg}
+                              style={getImageStyle(imgSrc)}
                               loading="lazy"
                             />
                             <div className={styles.imageOverlay}>
